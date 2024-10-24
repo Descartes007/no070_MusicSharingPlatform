@@ -1,0 +1,568 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="utf-8">
+<title>首页</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="author" content="order by mobanxiu.cn" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="../../layui/css/layui.css">
+<link href="https://cdn.bootcdn.net/ajax/libs/Swiper/5.4.5/css/swiper.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../../xznstatic/css/common.css"/>
+<link rel="stylesheet" href="../../xznstatic/css/style.css"/>
+<script src="../../xznstatic/js/jquery-1.11.3.min.js"></script>
+<script src="../../xznstatic/js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<style>
+	html::after {
+		position: fixed;
+		top: 0;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		content: '';
+		display: block;
+		background-attachment: fixed;
+		background-size: cover;
+		background-position: center;
+				background-image: url(http://codegen.caihongy.cn/20210105/5ac806e5b34440eeb63bde82cbc8d402.png);
+			}
+	#test1 {
+		overflow: hidden;
+	}
+	#test1 .layui-carousel-ind li {
+		width: 0px;
+		height: 20px;
+		border-width: 2px;
+		border-style: solid;
+		border-color: rgba(0, 0, 0, 1);
+		border-radius: 0px;
+		background-color: #f7f7f7;
+		box-shadow: ;
+	}
+	#test1 .layui-carousel-ind li.layui-this {
+		width: 0px;
+		height: 20px;
+		border-width: 2px;
+		border-style: solid;
+		border-color: rgba(255, 255, 255, 0.3);
+		border-radius: 0;
+		background-color: rgba(255, 255, 255, 1);
+		box-shadow: ;
+	}
+
+	.recommend {
+	  padding: 10px 0;
+	  display: flex;
+	  justify-content: center;
+	  background-repeat: no-repeat;
+	  background-position: center center;
+	  background-size: cover;
+	}
+
+	.recommend .box {
+	    width: 1014px;
+	}
+
+	.recommend .box .title {
+		padding: 10px 5px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	.recommend .box .title span {
+		padding: 0 10px;
+		line-height: 1.4;
+	}
+
+	.recommend .box .list {
+		display: flex;
+		flex-wrap: wrap;
+	}
+      	.index-pv1 .box .list .list-item {
+		flex: 0 0 50%;
+		padding: 0 5px;
+		box-sizing: border-box;
+	}
+
+	.recommend .box .list .list-item-body {
+		border: 1px solid rgba(0, 0, 0, 3);
+		padding: 5px;
+		box-sizing: border-box;
+		cursor: pointer;
+	}
+
+	.recommend .box .list img {
+		width: 100%;
+		height: 100px;
+		display: block;
+		margin: 0 auto;
+    object-fit: cover;
+    max-width: 100%;
+	}
+
+	.recommend .box .list .name {
+		padding-top: 5px;
+		color: red;
+		font-size: 14px;
+		text-align: center;
+		box-sizing: border-box;
+	}
+
+	.recommend .box .list .list-item3 {
+		flex: 0 0 33.33%;
+	}
+
+	.recommend .box .list .list-item5 {
+		flex: 0 0 20%;
+	}
+
+	.news {
+		padding: 10px 0;
+		display: flex;
+		justify-content: center;
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: cover;
+		width: 100%;
+	}
+
+	.news .box {
+	    width: 1014px;
+	}
+
+	.news .box .title {
+		padding: 10px 5px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	.news .box .title span {
+		padding: 0 10px;
+		line-height: 1.4;
+	}
+
+	.news .box .list {
+		display: flex;
+		flex-wrap: wrap;
+	}
+      	.index-pv2 .box .list .list-item {
+		flex: 0 0 33%;
+		padding: 0 10px;
+		box-sizing: border-box;
+	}
+
+	.news .box .list .list-item .list-item-body {
+		border: 1px solid rgba(0, 0, 0, 3);
+		padding: 10px;
+		box-sizing: border-box;
+		display: flex;
+		cursor: pointer;
+	}
+
+	.news .box .list .list-item .list-item-body img {
+		width: 120px;
+		height: 100%;
+		display: block;
+		margin: 0 auto;
+    object-fit: cover;
+    max-width: 100%;
+	}
+
+	.news .box .list .list-item .list-item-body .item-info {
+		flex: 1;
+		display: flex;
+		justify-content: space-between;
+		flex-direction: column;
+		padding-left: 10px;
+		box-sizing: border-box;
+	}
+
+	.news .box .list .list-item .list-item-body .item-info .name {
+		padding-top: 5px;
+		color: red;
+		font-size: 14px;
+		box-sizing: border-box;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-line-clamp: 1;
+		-webkit-box-orient: vertical;
+	}
+
+	.news .box .list .list-item .list-item-body .item-info .time {
+		padding-top: 5px;
+		color: red;
+		font-size: 14px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-line-clamp: 1;
+		-webkit-box-orient: vertical;
+	}
+
+	.news .box .list .list-item1 {
+		flex: 0 0 100%;
+	}
+
+	.news .box .list .list-item3 {
+		flex: 0 0 33.33%;
+	}
+
+	.lists {
+		padding: 10px 0;
+		display: flex;
+		justify-content: center;
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: cover;
+	}
+
+	.lists .box {
+	    width: 1014px;
+	    overflow: hidden;
+	}
+
+	.lists .box .title {
+		padding: 10px 5px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	.lists .box .title span {
+		padding: 0 10px;
+		line-height: 1.4;
+	}
+
+	.lists .box .swiper-slide {
+		box-sizing: border-box;
+		cursor: pointer;
+	}
+
+	.lists .box .swiper-slide .img-box {
+		width: 100%;
+		overflow: hidden;
+	}
+
+	.lists .box .swiper-slide .img-box img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+    max-width: 100%;
+	}
+
+                	.index-pv3 .box .list .list-item {
+  		flex: 0 0 33%;
+  		padding: 0 10px;
+  		box-sizing: border-box;
+  	}
+
+	.index-pv1 .animation-box:hover {
+		transform: perspective(10px) translate3d(-10px, -10px, 0px) scale(1) rotate(0deg) skew(0deg, 0deg);
+		transition: all 0.3s;
+	}
+  .index-pv2 .animation-box:hover {
+  	transform: perspective(1000px) translate3d(0px, 0px, 0px) scale(1) rotate(0deg) skew(0deg, 0deg);
+  	transition: all 0s;
+  }
+  .index-pv3 .animation-box:hover {
+  	transform: perspective(1000px) translate3d(0px, -10px, 0px) scale(1.05) rotate(0deg) skew(0deg, 0deg);
+  	transition: all 0.3s;
+  }
+</style>
+<body>
+  <div id="app">
+    <div class="banner">
+		<div class="layui-carousel" id="test1" :style='{"boxShadow":"","margin":"0 auto","borderColor":"rgba(0,0,0,.3)","borderRadius":"0px","borderWidth":"0","width":"100%","borderStyle":"solid"}'>
+		  <div carousel-item>
+			<div v-for="(item,index) in swiperList" :key="index">
+				<img style="width: 100%;height: 100%;object-fit:cover;" :src="item.img" />
+			</div>
+		  </div>
+		</div>
+      <!-- <div class="bd">
+        <ul>
+          <li v-for="(item,index) in swiperList" v-bind:key="index"><img style="width: 1920px;height: 492px;" :src="item.img" /></li>
+        </ul>
+        <div class="hd">
+          <ul>
+            <li v-for="(item,index) in swiperList" v-bind:key="index"></li>
+          </ul>
+        </div>
+      </div> -->
+    </div>
+
+    <div id="content">
+	<!-- 商品推荐 -->
+	<!-- 样式二 -->
+	<div class="news index-pv1" :style='{"padding":"10px 0 10px 0","boxShadow":"","margin":"10px 0 0 0","borderColor":"rgba(0,0,0,.3)","backgroundColor":"rgba(255, 255, 255, 0)","borderRadius":"0","borderWidth":"0","borderStyle":"solid"}'>
+	  <div class="box" style='width:80%'>
+	    <div class="title" :style='{"padding":"10px 0 10px 0","boxShadow":"","margin":"10px 0 10px 0","borderColor":"rgba(244, 244, 244, 1)","backgroundColor":"rgba(255, 255, 255, 0)","color":"rgba(0, 0, 0, 1)","borderRadius":"0px","alignItems":"center","borderWidth":"0","fontSize":"32px","borderStyle":"solid"}'>
+	      <span>Recommend</span><span>在线听歌推荐</span>
+	    </div>
+	    <div class="list">
+	      <div v-for="(item,index) in zaixiantinggeRecommend" class="list-item" :key="index" @click="jump('../zaixiantingge/detail.html?id='+item.id)" :class="2=='1'?'list-item1':2=='3'?'list-item3':''">
+	        <div class="list-item-body animation-box" :style='{"padding":"14px","boxShadow":"0 0 6px rgba(0, 0, 0, 0.3)","margin":"0 0 20px 0","borderColor":"rgba(0,0,0,.3)","backgroundColor":"#fff","borderRadius":"6px","borderWidth":"0","borderStyle":"solid"}'>
+	          	          			  	          			  	          			  	          			  	          			  	          			  	          			  	          			  	          			  <img :style='{"boxShadow":"0 0 6px rgba(0, 0, 0, 0.3)","borderColor":"rgba(0,0,0,.3)","borderRadius":"100%","borderWidth":"0","width":"200px","borderStyle":"solid","height":"200px"}' :src="item.tupian?item.tupian.split(',')[0]:''" alt="" />
+			  			  	          			  	          			  	          			  	          			  	          			  	          <div class="item-info">
+																				<div v-if='true' :style='{"isshow":true,"padding":"0","margin":"80px auto","backgroundColor":"rgba(255, 255, 255, 0.2)","color":"rgba(0, 0, 0, 1)","borderRadius":"0 0 6px 6px","textAlign":"left","fontSize":"32px"}' class="name">{{item.gequmingcheng}}</div>
+																																																																																																									          </div>
+	        </div>
+	      </div>
+	    </div>
+	    <div class="clear"></div>
+	    <div style="text-align: center;">
+    <button @click="jump('../zaixiantingge/list.html')" style="display: block;cursor: pointer;" type="button" :style='{"padding":"0 15px","boxShadow":"0 0 6px rgba(255,0,0,0)","margin":"4px auto","borderColor":"#ccc","backgroundColor":"rgba(255, 255, 255, 1)","color":"rgba(0, 0, 0, 1)","borderRadius":"6px","borderWidth":"0","width":"auto","fontSize":"14px","borderStyle":"solid","height":"34px"}'>查看更多<i v-if="true" :style='{"isshow":true,"padding":"0 0 0 1px","fontSize":"14px","color":"rgba(0, 0, 0, 1)"}' class="layui-icon layui-icon-next"></i></el-button>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- 新闻资讯 -->
+
+	<!-- 特价商品展示 -->
+	<!-- 样式一 -->
+	<div class="recommend index-pv3" :style='{"padding":"10px 0 10px 0","boxShadow":"","margin":"10px 0 0 0","borderColor":"rgba(0,0,0,.3)","backgroundColor":"rgba(255, 255, 255, 0)","borderRadius":"0","borderWidth":"0","borderStyle":"solid"}'>
+	  <div class="box" style='width:80%'>
+	    <div class="title" :style='{"isshow":true,"padding":"10px 0 10px 0","boxShadow":"","margin":"10px 0 10px 0","borderColor":"rgba(255, 255, 255, 0)","backgroundColor":"rgba(247, 247, 247, 0)","color":"rgba(0, 0, 0, 1)","borderRadius":"0px","alignItems":"center","borderWidth":"0 10px","fontSize":"32px","borderStyle":"solid"}'>
+	      <span>DATA SHOW</span><span>音乐资讯展示</span>
+	    </div>
+	    <div class="list">
+	      <div v-for="(item,index) in yinlezixunList" :key="index" @click="jump('../yinlezixun/detail.html?id='+item.id)" class="list-item" :class="3=='3'?'list-item3':3=='5'?'list-item5':''">
+	        <div class="list-item-body animation-box" :style='{"padding":"6px","boxShadow":"","margin":"0 0 20px 0","borderColor":"rgba(0,0,0,.3)","backgroundColor":"rgba(255, 255, 255, 0)","borderRadius":"0px","borderWidth":"0","borderStyle":"solid"}'>
+																												<img :style='{"boxShadow":"0 0 6px rgba(0, 0, 0, 0.3)","borderColor":"rgba(0,0,0,.3)","borderRadius":"100%","borderWidth":"0","width":"200px","borderStyle":"solid","height":"200px"}' :src="item.tupian?item.tupian.split(',')[0]:''" alt="" />
+																																																				<div v-if='true' :style='{"isshow":true,"padding":"10px 0","margin":"12px 0","backgroundColor":"rgba(0,0,0,.2)","color":"rgba(0, 0, 0, 1)","borderRadius":"","textAlign":"center","fontSize":"20px"}' class="name">{{item.biaoti}}</div>
+																																																									        </div>
+	      </div>
+	    </div>
+	    <div class="clear"></div>
+	    <div style="text-align: center;">
+		<button @click="jump('../yinlezixun/list.html')" style="display: block;cursor: pointer;" type="button" :style='{"padding":"0 15px","boxShadow":"0 0 6px rgba(255,0,0,0)","margin":"4px auto","borderColor":"#ccc","backgroundColor":"rgba(255, 255, 255, 1)","color":"rgba(0, 0, 0, 1)","borderRadius":"6px","borderWidth":"0","width":"auto","fontSize":"14px","borderStyle":"solid","height":"34px"}'>查看更多<i v-if="true" :style='{"isshow":true,"padding":"0 0 0 1px","fontSize":"14px","color":"rgba(0, 0, 0, 1)"}' class="layui-icon layui-icon-next"></i></el-button>
+	    </div>
+	  </div>
+	</div>
+	<!-- 样式一 -->
+	<div class="recommend index-pv3" :style='{"padding":"10px 0 10px 0","boxShadow":"","margin":"10px 0 0 0","borderColor":"rgba(0,0,0,.3)","backgroundColor":"rgba(255, 255, 255, 0)","borderRadius":"0","borderWidth":"0","borderStyle":"solid"}'>
+	  <div class="box" style='width:80%'>
+	    <div class="title" :style='{"isshow":true,"padding":"10px 0 10px 0","boxShadow":"","margin":"10px 0 10px 0","borderColor":"rgba(255, 255, 255, 0)","backgroundColor":"rgba(247, 247, 247, 0)","color":"rgba(0, 0, 0, 1)","borderRadius":"0px","alignItems":"center","borderWidth":"0 10px","fontSize":"32px","borderStyle":"solid"}'>
+	      <span>DATA SHOW</span><span>音乐翻唱展示</span>
+	    </div>
+	    <div class="list">
+	      <div v-for="(item,index) in yinlefanchangList" :key="index" @click="jump('../yinlefanchang/detail.html?id='+item.id)" class="list-item" :class="3=='3'?'list-item3':3=='5'?'list-item5':''">
+	        <div class="list-item-body animation-box" :style='{"padding":"6px","boxShadow":"","margin":"0 0 20px 0","borderColor":"rgba(0,0,0,.3)","backgroundColor":"rgba(255, 255, 255, 0)","borderRadius":"0px","borderWidth":"0","borderStyle":"solid"}'>
+																																																				<img :style='{"boxShadow":"0 0 6px rgba(0, 0, 0, 0.3)","borderColor":"rgba(0,0,0,.3)","borderRadius":"100%","borderWidth":"0","width":"200px","borderStyle":"solid","height":"200px"}' :src="item.tupian?item.tupian.split(',')[0]:''" alt="" />
+																																																																				<div v-if='true' :style='{"isshow":true,"padding":"10px 0","margin":"12px 0","backgroundColor":"rgba(0,0,0,.2)","color":"rgba(0, 0, 0, 1)","borderRadius":"","textAlign":"center","fontSize":"20px"}' class="name">{{item.gequmingcheng}}</div>
+																																																																																	        </div>
+	      </div>
+	    </div>
+	    <div class="clear"></div>
+	    <div style="text-align: center;">
+		<button @click="jump('../yinlefanchang/list.html')" style="display: block;cursor: pointer;" type="button" :style='{"padding":"0 15px","boxShadow":"0 0 6px rgba(255,0,0,0)","margin":"4px auto","borderColor":"#ccc","backgroundColor":"rgba(255, 255, 255, 1)","color":"rgba(0, 0, 0, 1)","borderRadius":"6px","borderWidth":"0","width":"auto","fontSize":"14px","borderStyle":"solid","height":"34px"}'>查看更多<i v-if="true" :style='{"isshow":true,"padding":"0 0 0 1px","fontSize":"14px","color":"rgba(0, 0, 0, 1)"}' class="layui-icon layui-icon-next"></i></el-button>
+	    </div>
+	  </div>
+	</div>
+	<!-- 样式一 -->
+	<div class="recommend index-pv3" :style='{"padding":"10px 0 10px 0","boxShadow":"","margin":"10px 0 0 0","borderColor":"rgba(0,0,0,.3)","backgroundColor":"rgba(255, 255, 255, 0)","borderRadius":"0","borderWidth":"0","borderStyle":"solid"}'>
+	  <div class="box" style='width:80%'>
+	    <div class="title" :style='{"isshow":true,"padding":"10px 0 10px 0","boxShadow":"","margin":"10px 0 10px 0","borderColor":"rgba(255, 255, 255, 0)","backgroundColor":"rgba(247, 247, 247, 0)","color":"rgba(0, 0, 0, 1)","borderRadius":"0px","alignItems":"center","borderWidth":"0 10px","fontSize":"32px","borderStyle":"solid"}'>
+	      <span>DATA SHOW</span><span>在线听歌展示</span>
+	    </div>
+	    <div class="list">
+	      <div v-for="(item,index) in zaixiantinggeList" :key="index" @click="jump('../zaixiantingge/detail.html?id='+item.id)" class="list-item" :class="3=='3'?'list-item3':3=='5'?'list-item5':''">
+	        <div class="list-item-body animation-box" :style='{"padding":"6px","boxShadow":"","margin":"0 0 20px 0","borderColor":"rgba(0,0,0,.3)","backgroundColor":"rgba(255, 255, 255, 0)","borderRadius":"0px","borderWidth":"0","borderStyle":"solid"}'>
+																																																																												<img :style='{"boxShadow":"0 0 6px rgba(0, 0, 0, 0.3)","borderColor":"rgba(0,0,0,.3)","borderRadius":"100%","borderWidth":"0","width":"200px","borderStyle":"solid","height":"200px"}' :src="item.tupian?item.tupian.split(',')[0]:''" alt="" />
+																																																																				<div v-if='true' :style='{"isshow":true,"padding":"10px 0","margin":"12px 0","backgroundColor":"rgba(0,0,0,.2)","color":"rgba(0, 0, 0, 1)","borderRadius":"","textAlign":"center","fontSize":"20px"}' class="name">{{item.gequmingcheng}}</div>
+																																																																																																									        </div>
+	      </div>
+	    </div>
+	    <div class="clear"></div>
+	    <div style="text-align: center;">
+		<button @click="jump('../zaixiantingge/list.html')" style="display: block;cursor: pointer;" type="button" :style='{"padding":"0 15px","boxShadow":"0 0 6px rgba(255,0,0,0)","margin":"4px auto","borderColor":"#ccc","backgroundColor":"rgba(255, 255, 255, 1)","color":"rgba(0, 0, 0, 1)","borderRadius":"6px","borderWidth":"0","width":"auto","fontSize":"14px","borderStyle":"solid","height":"34px"}'>查看更多<i v-if="true" :style='{"isshow":true,"padding":"0 0 0 1px","fontSize":"14px","color":"rgba(0, 0, 0, 1)"}' class="layui-icon layui-icon-next"></i></el-button>
+	    </div>
+	  </div>
+	</div>
+
+    </div>
+  </div>
+
+  <script src="../../layui/layui.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/Swiper/5.4.5/js/swiper.min.js"></script>
+  <script src="../../js/vue.js"></script>
+  <script src="../../js/config.js"></script>
+  <script src="../../modules/config.js"></script>
+  <script src="../../js/utils.js"></script>
+  <script type="text/javascript">
+    var vue = new Vue({
+      el: '#app',
+      data: {
+        zaixiantinggeRecommend: [],
+
+        yinlezixunList: [],
+        yinlefanchangList: [],
+        zaixiantinggeList: [],
+        swiperList: [],
+        // 新闻资讯
+        newsList: [],
+        leftNewsList: [],
+        rightNewsList: []
+      },
+      filters: {
+        newsDesc: function(val) {
+          if (val) {
+            val = val.replace(/<[^<>]+>/g, '').replace(/undefined/g, '');
+            if (val.length > 60) {
+              val = val.substring(0, 60);
+            }
+
+            return val;
+          }
+          return '';
+        }
+      },
+      methods: {
+        jump(url) {
+          jump(url)
+        }
+      }
+    });
+
+    layui.use(['layer', 'form', 'element', 'carousel', 'http', 'jquery'], function() {
+      var layer = layui.layer;
+      var element = layui.element;
+      var form = layui.form;
+      var carousel = layui.carousel;
+      var http = layui.http;
+      var jquery = layui.jquery;
+
+      // 获取轮播图 数据
+      http.request('config/list', 'get', {
+        page: 1,
+        limit: 5
+      }, function(res) {
+        if (res.data.list.length > 0) {
+          let swiperList = [];
+          res.data.list.forEach(element => {
+            if (element.value != null) {
+              swiperList.push({
+                img: element.value
+              });
+            }
+          });
+
+		  vue.swiperList = swiperList;
+
+		  vue.$nextTick(() => {
+		    carousel.render({
+		    	elem: '#test1',
+				width: '100%',
+		    	height: '480px',
+		    	arrow: 'hover',
+		    	anim: 'updown',
+		    	autoplay: 'true',
+		    	interval: '3000',
+		    	indicator: 'inside'
+		    });
+
+		  })
+
+          // vue.$nextTick(()=>{
+          //   window.xznSlide();
+          // });
+        }
+      });
+
+
+      // 获取推荐信息
+      http.request(`zaixiantingge/autoSort`, 'get', {
+        page: 1,
+	limit: 2 * 2
+      }, function(res) {
+        vue.zaixiantinggeRecommend = res.data.list
+		let flag = 2;
+		let options = {"navigation":{"nextEl":".swiper-button-next","prevEl":".swiper-button-prev"},"slidesPerView":5,"loop":true,"spaceBetween":20,"autoplay":{"delay":3000,"disableOnInteraction":false}}
+		options.pagination = {el:'null'}
+		if(flag == 3) {
+			vue.$nextTick(() => {
+                                                                				new Swiper ('#recommendzaixiantingge', options)
+                                                                                                                			})
+		}
+      });
+
+      http.request(`yinlezixun/list`, 'get', {
+        page: 1,
+	limit: 3 * 2
+      }, function(res) {
+        vue.yinlezixunList = res.data.list;
+		let flag = 1;
+		let options = {"navigation":{"nextEl":".swiper-button-next","prevEl":".swiper-button-prev"},"slidesPerView":5,"loop":true,"spaceBetween":20,"autoplay":{"delay":3000,"disableOnInteraction":false}}
+		options.pagination = {el:'null'}
+		if(flag == 3) {
+			vue.$nextTick(() => {
+                                				new Swiper ('#listsyinlezixun', options)
+                        				new Swiper ('#listsyinlefanchang', options)
+                        				new Swiper ('#listszaixiantingge', options)
+                                                                                                                			})
+		}
+        // vue.$nextTick(()=>{
+        //   window.xznSlide();
+        // });
+      });
+      http.request(`yinlefanchang/list`, 'get', {
+        page: 1,
+	limit: 3 * 2
+      }, function(res) {
+        vue.yinlefanchangList = res.data.list;
+		let flag = 1;
+		let options = {"navigation":{"nextEl":".swiper-button-next","prevEl":".swiper-button-prev"},"slidesPerView":5,"loop":true,"spaceBetween":20,"autoplay":{"delay":3000,"disableOnInteraction":false}}
+		options.pagination = {el:'null'}
+		if(flag == 3) {
+			vue.$nextTick(() => {
+                                				new Swiper ('#listsyinlezixun', options)
+                        				new Swiper ('#listsyinlefanchang', options)
+                        				new Swiper ('#listszaixiantingge', options)
+                                                                                                                			})
+		}
+        // vue.$nextTick(()=>{
+        //   window.xznSlide();
+        // });
+      });
+      http.request(`zaixiantingge/list`, 'get', {
+        page: 1,
+	limit: 3 * 2
+      }, function(res) {
+        vue.zaixiantinggeList = res.data.list;
+		let flag = 1;
+		let options = {"navigation":{"nextEl":".swiper-button-next","prevEl":".swiper-button-prev"},"slidesPerView":5,"loop":true,"spaceBetween":20,"autoplay":{"delay":3000,"disableOnInteraction":false}}
+		options.pagination = {el:'null'}
+		if(flag == 3) {
+			vue.$nextTick(() => {
+                                				new Swiper ('#listsyinlezixun', options)
+                        				new Swiper ('#listsyinlefanchang', options)
+                        				new Swiper ('#listszaixiantingge', options)
+                                                                                                                			})
+		}
+        // vue.$nextTick(()=>{
+        //   window.xznSlide();
+        // });
+      });
+  });
+
+  window.xznSlide = function() {
+    // jQuery(".banner").slide({mainCell:".bd ul",autoPlay:true,interTime:5000});
+    jQuery("#ifocus").slide({ titCell:"#ifocus_btn li", mainCell:"#ifocus_piclist ul",effect:"leftLoop", delayTime:200, autoPlay:true,triggerTime:0});
+    jQuery("#ifocus").slide({ titCell:"#ifocus_btn li", mainCell:"#ifocus_tx ul",delayTime:0, autoPlay:true});
+    jQuery(".product_list").slide({mainCell:".bd ul",autoPage:true,effect:"leftLoop",autoPlay:true,vis:5,trigger:"click",interTime:4000});
+  };
+</script>
+<script src="../../xznstatic/js/index.js"></script>
+</body>
+</html>
